@@ -13,7 +13,7 @@ const EditContact = () => {
   function handleEditInput(e) {
     let newContact = {
       ...newEditItem,
-      contact: e.target.value,
+      [e.target.name]: e.target.value,
     };
     setNewEditItem(newContact);
   }
@@ -24,26 +24,30 @@ const EditContact = () => {
         <>
           <input
             onChange={handleEditInput}
-            defaultValue={newEditItem.name}
+            value={newEditItem.name}
             type="text"
+            name="name"
           />
           <br />
           <input
             onChange={handleEditInput}
             defaultValue={newEditItem.phone}
             type="number"
+            name="phone"
           />
           <br />
           <input
             onChange={handleEditInput}
             defaultValue={newEditItem.email}
             type="email"
+            name="email"
           />
           <br />
           <input
             onChange={handleEditInput}
             defaultValue={newEditItem.img}
             type="text"
+            name="img"
           />
           <br />
           <button onClick={() => saveContact(newEditItem)}>Save</button>
